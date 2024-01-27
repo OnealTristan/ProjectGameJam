@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class CheckpointMechanic : MonoBehaviour
 {
     [SerializeField] private PlayerMovement player;
-    [SerializeField] private GameObject trivia1;
+    [SerializeField] private GameObject trivia;
     [SerializeField] private NavMeshAgent enemy;
     [SerializeField] private PlayerCam playerCam;
     private void OnTriggerEnter(Collider other)
@@ -15,7 +15,7 @@ public class CheckpointMechanic : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
         player.playerCanMove = false;
-        trivia1.SetActive(true);
+        trivia.SetActive(true);
         enemy.isStopped = true;
     }
 }

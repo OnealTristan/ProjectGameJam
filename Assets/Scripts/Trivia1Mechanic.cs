@@ -8,9 +8,8 @@ public class Trivia1Mechanic : MonoBehaviour
     [SerializeField] private GameObject tembok;
     [SerializeField] private GameObject checkpoint;
     [SerializeField] private PlayerMovement player;
-    [SerializeField] private GameObject trivia1;
+    [SerializeField] private GameObject trivia;
     [SerializeField] private NavMeshAgent enemy;
-    [SerializeField] private PlayerCam playerCam;
 
     public void ButtonBenarClicked()
     {
@@ -18,7 +17,7 @@ public class Trivia1Mechanic : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         player.playerCanMove = true;
-        trivia1.SetActive(false);
+        trivia.SetActive(false);
         enemy.isStopped = false;
     }
 
@@ -28,7 +27,7 @@ public class Trivia1Mechanic : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         player.playerCanMove = true;
-        trivia1.SetActive(false);
+        trivia.SetActive(false);
         enemy.isStopped = false;
         tembok.SetActive(true);
     }

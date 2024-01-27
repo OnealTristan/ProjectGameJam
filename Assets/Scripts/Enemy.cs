@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Transform playerPosition;
     private NavMeshAgent navMeshAgent;
 
+    public bool isChase = false;
+
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -19,12 +21,15 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        navMeshAgent.destination = playerPosition.position;
+        if (isChase == true)
+        {
+            navMeshAgent.destination = playerPosition.position;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && isChase == true)
         {
             losePanel.SetActive(true);
             Cursor.lockState = CursorLockMode.Confined;

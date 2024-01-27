@@ -14,9 +14,14 @@ public class PlayerCam : MonoBehaviour
     float xRotation;
     float yRotation;
 
+    bool isStart = false;
+
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
+        transform.localRotation = Quaternion.Euler(0, -270f, 0);
+        yield return new WaitForSeconds(1);
+        isStart = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -24,6 +29,10 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isStart)
+        {
+            return;
+        }
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
@@ -32,7 +41,7 @@ public class PlayerCam : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+        transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0);
+        orientation.localRotation = Quaternion.Euler(0, yRotation, 0);
     }
 }
