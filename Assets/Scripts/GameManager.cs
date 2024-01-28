@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public AudioSource audioSourceBgm;
     [SerializeField] private AudioClip bgm, winSfx, triviaWrongSfx, jumpScareSfx, bruhSfx, emotionalDmgSfx, wrongBtnSfx1, wrongBtnSfx2, wrongBtnSfx3, wrongBtnSfx4;
 
-    private void Awake()
+    void Awake()
     {
         audioSourceBgm.clip = bgm;
         audioSourceBgm.loop = true;

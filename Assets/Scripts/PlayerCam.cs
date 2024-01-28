@@ -14,7 +14,7 @@ public class PlayerCam : MonoBehaviour
     float xRotation;
     float yRotation;
 
-    bool isStart = false;
+    public bool isStart = false;
 
     // Start is called before the first frame update
     IEnumerator Start()
