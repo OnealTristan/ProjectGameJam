@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
     {
         if (isChase == true)
         {
+
             navMeshAgent.destination = playerPosition.position;
             animator.SetBool("IsActive", true);
         }
