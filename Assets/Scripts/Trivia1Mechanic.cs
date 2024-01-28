@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Trivia1Mechanic : MonoBehaviour
 {
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private GameObject tembok;
     [SerializeField] private GameObject checkpoint;
     [SerializeField] private PlayerMovement player;
@@ -30,5 +31,6 @@ public class Trivia1Mechanic : MonoBehaviour
         trivia.SetActive(false);
         enemy.isStopped = false;
         tembok.SetActive(true);
+        gameManager.JumpScareSfxPlay();
     }
 }

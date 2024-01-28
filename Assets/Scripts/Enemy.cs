@@ -6,9 +6,11 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private GameObject losePanel;
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private PlayerMovement player;
     [SerializeField] private NavMeshAgent enemy;
     [SerializeField] private Transform playerPosition;
+    [SerializeField] private Animator animator;
     private NavMeshAgent navMeshAgent;
 
     public bool isChase = false;
@@ -24,6 +26,7 @@ public class Enemy : MonoBehaviour
         if (isChase == true)
         {
             navMeshAgent.destination = playerPosition.position;
+            animator.SetBool("IsActive", true);
         }
     }
 
@@ -31,6 +34,8 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && isChase == true)
         {
+            gameManager.audioSourceBgm.Stop();
+            gameManager.TriviaSalahSfxPlay();
             losePanel.SetActive(true);
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;

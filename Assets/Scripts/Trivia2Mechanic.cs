@@ -11,6 +11,7 @@ public class Trivia2Mechanic : MonoBehaviour
 
 
     [Space(10)]
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private GameObject checkpoint;
     [SerializeField] private GameObject losePanel;
     [SerializeField] private GameObject trivia;
@@ -25,6 +26,8 @@ public class Trivia2Mechanic : MonoBehaviour
             health.RemoveAt(health.Count - 1);
         } else
         {
+            gameManager.audioSourceBgm.Stop();
+            gameManager.TriviaSalahSfxPlay();
             losePanel.SetActive(true);
             trivia.SetActive(false);
             Cursor.lockState = CursorLockMode.Confined;
