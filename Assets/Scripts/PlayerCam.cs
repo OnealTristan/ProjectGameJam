@@ -33,7 +33,7 @@ public class PlayerCam : MonoBehaviour
         {
             return;
         }
-        if (Cursor.visible == false )
+        if (Cursor.visible == false)
         {
             float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
             float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
